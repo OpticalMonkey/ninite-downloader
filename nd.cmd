@@ -17,47 +17,46 @@ IF NOT EXIST %NINITELOC%\. MD %NINITELOC%
 
 :QUEUE
 ECHO START: %DATE% %TIME%
-ECHO.
-ECHO Downloading Ninite Antimalware Installers:
+ECHO. & ECHO Downloading Ninite Antimalware Installers:
 CALL :DOWNLOAD adaware
 CALL :DOWNLOAD malwarebytes
 CALL :DOWNLOAD spybot
 CALL :DOWNLOAD super
-ECHO Downloading Ninite Antivirus Installers:
+ECHO. & ECHO Downloading Ninite Antivirus Installers:
 CALL :DOWNLOAD avast-malwarebytes
 CALL :DOWNLOAD avg-malwarebytes
 CALL :DOWNLOAD essentials-malwarebytes
-ECHO Downloading Ninite Browser Installers:
+ECHO. & ECHO Downloading Ninite Browser Installers:
 CALL :DOWNLOAD chrome
 CALL :DOWNLOAD firefox
 CALL :DOWNLOAD opera
 CALL :DOWNLOAD safari
-ECHO Downloading Ninite File Sharing Installers:
+ECHO. & ECHO Downloading Ninite File Sharing Installers:
 CALL :DOWNLOAD emule-utorrent
-ECHO Downloading Ninite Web Runtime Installers:
+ECHO. & ECHO Downloading Ninite Web Runtime Installers:
 CALL :DOWNLOAD air-flash-flashie
 CALL :DOWNLOAD dotnet-silverlight
 CALL :DOWNLOAD java
 CALL :DOWNLOAD air-flash-flashie-dotnet-silverlight-java
-ECHO Downloading Ninite Messaging Installers:
+ECHO. & ECHO Downloading Ninite Messaging Installers:
 CALL :DOWNLOAD aim
 CALL :DOWNLOAD googletalk
 CALL :DOWNLOAD messenger
 CALL :DOWNLOAD skype
 CALL :DOWNLOAD yahoo
-ECHO Downloading Ninite Multi-Messaging Installers:
+ECHO. & ECHO Downloading Ninite Multi-Messaging Installers:
 CALL :DOWNLOAD digsby
 CALL :DOWNLOAD pidgin
-ECHO Downloading Ninite Viewer Installers:
+ECHO. & ECHO Downloading Ninite Viewer Installers:
 CALL :DOWNLOAD klitecodecs-mediamonkey-picasa-vlc-winamp
 CALL :DOWNLOAD reader
-ECHO Downloading Ninite Archive Installers:
+ECHO. & ECHO Downloading Ninite Archive Installers:
 CALL :DOWNLOAD imgburn-sevenzip-winrar
-ECHO Downloading Ninite Remote Access Installers:
+ECHO. & ECHO Downloading Ninite Remote Access Installers:
 CALL :DOWNLOAD putty-realvnc-teamviewer
-ECHO Downloading Ninite Remote Transfer Installers:
+ECHO. & ECHO Downloading Ninite Remote Transfer Installers:
 CALL :DOWNLOAD filezilla-teracopy-winscp
-ECHO Downloading Ninite Piriform Installers:
+ECHO. & ECHO Downloading Ninite Piriform Installers:
 CALL :DOWNLOAD ccleaner-defraggler-recuva
 ECHO.
 ECHO FINISH: %DATE% %TIME%
@@ -70,7 +69,7 @@ GOTO :EOF
 :PREREQ
 IF EXIST .\wget.exe (
 	IF NOT EXIST %TOOLS-BIN%\. MD %TOOLS-BIN%
-	MOVE /Y .\wget.exe %TOOLS-BIN%\
+	MOVE /Y .\wget.exe %TOOLS-BIN%\>:NULL 2>&1
 	GOTO :QUEUE
 ) ELSE (
 	IF NOT EXIST %TOOLS-BIN%\wget.exe GOTO :PREREQMISSING
@@ -95,7 +94,6 @@ ECHO saved or copied into this directory.
 GOTO :END
 
 :END
-ECHO.
 ENDLOCAL
 REM 5678901234567890123456789012345678901234567890123456789012345678901234567890
 REM This script is free to USE and MODIFY, or REDISTRIBUTE in its' ORIGINAL FORM;
