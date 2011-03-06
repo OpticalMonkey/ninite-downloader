@@ -12,8 +12,8 @@ SET USERAGENT=GetRight/6.3e
 SET WGET32URL=http://users.ugent.be/~bpuype/cgi-bin/fetch.pl?dl=wget/wget.exe
 
 :CHECKPREREQ
-IF NOT EXIST %TOOLS-BIN%\wget.exe GOTO :PREREQ
 IF NOT EXIST %NINITELOC%\. MD %NINITELOC%
+IF NOT EXIST %TOOLS-BIN%\wget.exe GOTO :PREREQ
 
 :QUEUE
 ECHO START: %DATE% %TIME%
